@@ -1,0 +1,27 @@
+
+# Loads default set of integrations. Do not remove.
+default_config:
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+mqtt:
+  sensor:
+    - name: "Temperatura Casa"
+      unique_id: temperatura_casa
+      state_topic: "casa/sensor/temperatura"
+      unit_of_measurement: "°C"
+      device_class: temperature
+      state_class: measurement
+
+    - name: "Umidade Casa"
+      unique_id: umidade_casa
+      state_topic: "casa/sensor/umidade"
+      unit_of_measurement: "%"
+      device_class: humidity
+      state_class: measurement
